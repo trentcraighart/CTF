@@ -1,0 +1,28 @@
+Working Bash Script is allCurlScript.sh
+
+
+
+
+
+curl http://jh2i.com:50011/site/ > site
+
+grep ">102" site > site102
+
+cut -b 120-155 site102 > 102php
+
+run curlscript.sh :
+
+#!/usr/bin/env bash
+
+input1="./101php"
+input2="./102php"
+
+while read line:
+do 
+	curl http://jh2i.com:50011/site/$line >> letterText
+done < "$input1"
+
+while read line:
+do 
+	curl http://jh2i.com:50011/site/$line >> letterText
+done < "$input2"

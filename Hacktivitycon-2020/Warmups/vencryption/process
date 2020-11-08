@@ -1,0 +1,7 @@
+Here I worked on the challenge for a while. For a long time I tried to find proper tools
+to crack the encryption for Vimcrypt-03, but was unable to find one that works.
+
+Next I thought about a hash of the password, but I couldn't figure out how to get that.
+
+Following I thought about bruteforcing a rainbowtable and trying to grep the string flag{
+

@@ -1,0 +1,15 @@
+Upon looking at the side-channel python file, we can see that it generates a password consisting
+of numbers 0-9 and chars a-f. The lines that first caught my attention was the following line
+
+
+if user_guess != password[i]
+	time.sleep(0.1 * character_position_in_hex(password[i])
+
+
+With the previous line, on our first run of the program, we can check the times it takes to load
+the next prompt and use those to figure out the password.
+
+For example if the first letter in the prompt took 0.7 seconds, we can reference the string: "0123456789abcdef"
+and now we know the first char was 6
+
+

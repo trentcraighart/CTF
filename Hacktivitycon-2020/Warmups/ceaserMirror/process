@@ -1,0 +1,9 @@
+To solve, I loaded the textfile into a ceaser cipher solver
++13 was needed to get the first half of the flag
+
+
+The second and third parts of the flag was found by reversing all the strings on the second part of the cipher to 
+mirror the contents
+
+
+

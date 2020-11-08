@@ -1,0 +1,6 @@
+To find the flag in this scenario I first played around with the source of the website
+(As is tradition with all web based ctf challenges)
+
+After that I looked at the hint and saw rfc5785, this relates to the website
+URL being appended with /.well-known or /.well-known/exampleservice
+With this we can easily find the flag

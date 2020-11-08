@@ -1,0 +1,41 @@
+All deductions were made by decompiling the binary with Ghidra and analyzing the main function.
+This lead to seeing pin3's function didn't have any checks so I started there and worked through
+
+pin 3   -845500968  
+Step 1 was found by converting hex -0x32655228
+
+pin 1   99
+Step 2 our final byte we want is 238 and will be xored with the following:
+00111110
+01010111
+10000001
+11010011
+00100101
+10010011
+11101110 - Our goal to get it's xor
+--------
+01100011 - 0x63 which is 99 in Decimal
+
+pin 5 1413036362
+This was solved by making our own c program with the rand seed 0x42424242
+
+pin 2
+Within thie context of the function, the magic number given here is the seed to srand
+Knowing this we can employ the C function in order to learn what the proper rand() output should be
+
+pin 4
+Knowing the previous pin seeded the randomness, we could just call rand to get Ivar
+Looking at the dissasembled function, we can see the following:
+
+local_48 = local_48 + ((int)*(char *)((long)&local_38 + (long)local_44) ^ iVar1 % 10 + 0x41U)
+
+While this looks tough, in simple it's casting each byte of our input to an int.
+With that int, it's going to xor against the value of iVarl %10 + 0x41
+
+In simpler terms, the following is happening:
+
+for x in string:
+totalvalue = totalvalue + (x XOR ((iVarl % 10) + 65)
+
+The goal of the function is to have a final total value of 291 or 0x123
+With this we can build a function to achive this output

@@ -1,0 +1,9 @@
+For a while I went through and googled rsa key formatting to little avail. I tried changing the header and footer.
+In addition I checked through to see if the key had proper end of line characters instead of the windows standard.
+
+After a while I found a thread on stack overflow covering the translation from an OPENSSH key to an RSA key
+https://stackoverflow.com/questions/54994641/openssh-private-key-to-rsa-private-key
+
+Turns out the format of the key we wanted was PEM. This can be achived by the following command:
+ssh-keygen -p -N "" -m pem -f /path/to/key
+
